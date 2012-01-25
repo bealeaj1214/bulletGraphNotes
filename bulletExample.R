@@ -1,8 +1,8 @@
 require(ggplot2)
 
-grades.values.1 <-c(200,250,300)
-grades.fill=c("grey60","grey75","grey90")
-junk<-data.frame(values=c(grades.values.1[1],diff(grades.values.1)),fill=grades.fill)
+#grades.values.1 <-c(200,250,300)
+#grades.fill=c("grey60","grey75","grey90")
+#junk<-data.frame(values=c(grades.values.1[1],diff(grades.values.1)),fill=grades.fill)
 
 #ggplot(junk)+geom_bar(aes(x=1,y=values,fill=fill),width=0.2)+
 #  geom_bar(aes(x=1,y=275),fill="black",width=0.1)+
@@ -46,6 +46,7 @@ bulleChartHor3<-function(grades,title,target,measure,breaks) {
          panel.background = theme_blank(),
          panel.grid.major = theme_blank(),
          axis.text.y =theme_blank(),
+         axis.title.x =theme_blank(),
          axis.title.y = theme_text(angle=0,size=10))
   
   p
