@@ -20,14 +20,14 @@ junk<-data.frame(values=c(grades.values.1[1],diff(grades.values.1)),fill=grades.
 #                axis.title.y = theme_text(angle=0,size=10))
 
 
-bulleChartHor3<-function(grades,title,target) {
+bulleChartHor3<-function(grades,title,target,measure) {
   grades.fill=c("grey60","grey75","grey90")
   grades.bars=c(grades[1],diff(grades))
   chart.grades<-data.frame(values=grades.bars,fill=grades.fill)
 
  p<-ggplot(chart.grades) +
    geom_bar(aes(x=1,y=values,fill=fill),width=0.2)+
-     geom_bar(aes_string(x=1,y=275),fill="black",width=0.1)+
+     geom_bar(aes_string(x=1,y=measure),fill="black",width=0.1)+
        geom_hline(aes_string(yintercept=target))+
          scale_fill_identity()+
            theme_bw() +
@@ -44,4 +44,4 @@ bulleChartHor3<-function(grades,title,target) {
   p
 }
 
-print(bulleChartHor3(c(200,250,300),title="test",target=250))
+print(bulleChartHor3(c(200,250,300),title="test",target=250,measure=270))
