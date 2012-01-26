@@ -1,0 +1,53 @@
+\documentclass{beamer}
+%\usepackage{bookman}
+\usetheme{Berkeley}
+% choose color scheme
+\usecolortheme{dolphin}
+\usepackage{tikz}
+\usepackage{listings}
+
+% attempt to use fontspec to select fonts 
+\usepackage{fontspec,xltxtra,xunicode}
+\defaultfontfeatures{Mapping=tex-text}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+
+\title[Bullet Graph]{Bullet Graphs with GGplot2}
+\author[A. Beale ]{Alan Beale}
+\date[Jan 2012]{January 26th, 2012}
+
+\begin{document}
+\lstset{language=R}
+
+
+\setbeamercovered{invisible}
+\graphicspath{{images//}}
+
+\sffamily 
+<<setup,echo=FALSE,results=hide>>=
+require("ggplot2")
+require("tikzDevice")
+options(tikzDefaultEngine = "xetex")
+options( tikzLatex = "/usr/texbin/xelatex" )
+options( tikzXelatex = "/usr/texbin/xelatex" )
+options( tikzMetricsDictionary = "build/4tikzMetricsDictionary" )
+
+
+@ 
+\begin{frame} [plain]
+  \titlepage
+\end{frame}
+
+<<setup2,echo=FALSE,results=hide>>=
+source("bulletExample.R")
+@ 
+
+<<introChart,echo=FALSE,results=hide>>=
+tikz(file="build/intro.tex",width=2.8,height=0.8)
+print(bulletChartHor3Exp(c(200,250,300),title="Revenue\n2005 YTD",target=250,measure=270))
+garbage<-dev.off()
+@ 
+\begin{frame}[plain] {Example} 
+ \input{intro}
+\end{frame} 
+
+\end{document}

@@ -1,0 +1,9 @@
+/build
+# ignore pdfs
+*.pdf
+
+# tex
+bulletGraph.tex
+
+# R artifacts
+.Rhistory
