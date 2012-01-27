@@ -52,7 +52,7 @@ bulletChartHor3Exp<-function(grades,title,target,measure,breaks) {
   p
 }
 
-bulletChartHor3<-function(grades,title,target,measure,breaks) {
+bulletChartHor3<-function(grades,title,target,measure,breaks,base_font_size=8) {
   grades.fill=c("grey60","grey75","grey90")
   grades.bars=c(grades[1],diff(grades))
   chart.grades<-data.frame(values=grades.bars,fill=grades.fill)
@@ -62,7 +62,7 @@ bulletChartHor3<-function(grades,title,target,measure,breaks) {
      geom_bar(aes_string(x=1,y=measure),fill="black",width=0.1)+
        geom_hline(aes_string(yintercept=target))+
          scale_fill_identity()+
-           theme_bw() +
+           theme_bw(base_size = base_font_size) +
              scale_x_continuous(breaks=c(2))
   
   if(missing(breaks)) {

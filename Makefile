@@ -1,4 +1,4 @@
-all:
+all::
 
 
 TEXBIN=/usr/texbin
@@ -18,7 +18,9 @@ export PDFLATEX
 %.tex :: %.Rnw
 	Rscript assignment.cmd $<
 
+bulletGraph.pdf :: bulletGraph.tex build/*.tex
 
 bulletGraph.tex :: bulletGraph.Rnw
 
-bulletGraph.pdf :: bulletGraph.tex
+
+all :: bulletGraph.pdf

@@ -3,6 +3,8 @@
 \usetheme{Berkeley}
 % choose color scheme
 \usecolortheme{dolphin}
+\usepackage{array}
+\usepackage{ragged2e}
 \usepackage{tikz}
 \usepackage{listings}
 
@@ -10,6 +12,10 @@
 \usepackage{fontspec,xltxtra,xunicode}
 \defaultfontfeatures{Mapping=tex-text}
 \setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+
+\newcolumntype{x}[1]{%
+>{\RaggedLeft\hspace{0pt}}p{#1}}%
+
 
 \title[Bullet Graph]{Bullet Graphs with GGplot2}
 \author[A. Beale ]{Alan Beale}
@@ -43,11 +49,42 @@ source("bulletExample.R")
 
 <<introChart,echo=FALSE,results=hide>>=
 tikz(file="build/intro.tex",width=2.8,height=0.8)
-print(bulletChartHor3Exp(c(200,250,300),title="Revenue\n2005 YTD",target=250,measure=270))
+print(bulletChartHor3(c(200,250,300),title="Revenue\n2005 YTD",target=250,measure=270))
 garbage<-dev.off()
 @ 
-\begin{frame}[plain] {Example} 
+\begin{frame} {Example} 
+Bullet Graph example\\  
  \input{intro}
 \end{frame} 
 
+<<horizontal,echo=FALSE,results=hide>>=
+tikz(file="build/revenue.tex",width=1.8,height=0.32)
+print(bulletChartHor3(c(150,225,300),target=250,measure=270))
+garbage<-dev.off()
+
+@
+
+<<profit,echo=FALSE,results=hide>>=
+tikz(file="build/profit.tex",width=2.8,height=0.32)
+ print(bulletChartHor3(c(20,25,30),target=27.5,measure=23))
+garbage<-dev.off()
+@ 
+\begin{frame}
+\footnotesize
+\begin{table}[h!]
+\begin{tabular}{@{}x{3cm}l@{}}
+\textbf{Revenue}\newline US \$  (1,000)& \input{revenue} \\
+%%\textbf{Profit}\newline \%  & \input{profit}\\
+\textbf{Ave Order Size}\newline US\$  & ph \\
+\textbf{New Customer}\newline Count & ph\\
+\textbf{Cust Satisfaction}\newline Top Rating of 5& ph\\
+\end{tabular}
+\end{table}
+\normalsize
+\end{frame}
+
+\begin{frame}
+\input{profit} \\
+\input{intro}
+\end{frame}
 \end{document}
