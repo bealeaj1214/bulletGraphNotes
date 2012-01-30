@@ -57,27 +57,45 @@ Bullet Graph example\\
  \input{intro}
 \end{frame} 
 
-<<horizontal,echo=FALSE,results=hide>>=
-tikz(file="build/revenue.tex",width=1.8,height=0.32)
-print(bulletChartHor3(c(150,225,300),target=250,measure=270))
+<<horizontal,echo=FALSE,results=hide,cache=TRUE>>=
+tikz(file="build/revenue.tex",width=1.6,height=0.53)
+print(bulletChartHor3(c(150,225,300),target=250,measure=270,base_font_size=6))
 garbage<-dev.off()
 
 @
 
-<<profit,echo=FALSE,results=hide>>=
-tikz(file="build/profit.tex",width=2.8,height=0.32)
- print(bulletChartHor3(c(20,25,30),target=27.5,measure=23))
+<<profit,echo=FALSE,results=hide,cache=TRUE>>=
+tikz(file="build/profit.tex",width=1.6,height=0.53)
+ print(bulletChartHor3(c(20,25,30),target=27.5,measure=23,base_font_size=6))
+garbage<-dev.off()
+@
+
+<<aveOrderSize,echo=FALSE,results=hide,cache=TRUE>>=
+tikz(file="build/orderSize.tex",width=1.6,height=0.53)
+ print(bulletChartHor3(c(350,500,600),target=550,measure=340,base_font_size=6))
+garbage<-dev.off()
+@ 
+
+<<newCust,echo=FALSE,results=hide,cache=TRUE>>=
+tikz(file="build/customers.tex",width=1.6,height=0.53)
+ print(bulletChartHor3(c(1400,2000,2500),target=2100,measure=1700,base_font_size=6))
+garbage<-dev.off()
+@ 
+<<satifaction,echo=FALSE,results=hide,cache=TRUE>>=
+tikz(file="build/custSatifaction.tex",width=1.6,height=0.53)
+ print(bulletChartHor3(c(3.5,4.5,6),target=5,measure=5.25,base_font_size=6))
 garbage<-dev.off()
 @ 
 \begin{frame}
 \footnotesize
 \begin{table}[h!]
-\begin{tabular}{@{}x{3cm}l@{}}
-\textbf{Revenue}\newline US \$  (1,000)& \input{revenue} \\
-%%\textbf{Profit}\newline \%  & \input{profit}\\
-\textbf{Ave Order Size}\newline US\$  & ph \\
-\textbf{New Customer}\newline Count & ph\\
-\textbf{Cust Satisfaction}\newline Top Rating of 5& ph\\
+\begin{tabular}{@{}x{3cm}|l@{}}
+\textbf{Revenue}\newline\small{ US \$  (1,000)}& \input{revenue} \\ \hline \\
+\textbf{Profit}\newline \%  & \input{profit}\\ 
+\hline \\
+\textbf{Ave Order Size}\newline\small{US \$} & \input{orderSize} \\
+\textbf{New Customer}\newline\small{Count}& \input{customers}\\
+\textbf{Cust Satisfaction}\newline\small{Top Rating of 5}& \input{custSatifaction}\\
 \end{tabular}
 \end{table}
 \normalsize
