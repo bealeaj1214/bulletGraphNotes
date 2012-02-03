@@ -66,34 +66,33 @@ garbage<-dev.off()
 @
 
 <<profit,echo=FALSE,results=hide,cache=TRUE>>=
-tikz(file="build/profit.tex",width=1.6,height=0.53)
+tikz(file="build/profit.tex",width=1.1,height=0.53)
  print(bulletChartHor3(c(20,25,30),target=27.5,measure=23,base_font_size=6))
 garbage<-dev.off()
 @
 
 <<aveOrderSize,echo=FALSE,results=hide,cache=TRUE>>=
-tikz(file="build/orderSize.tex",width=1.6,height=0.53)
+tikz(file="build/orderSize.tex",width=1.2,height=0.53)
  print(bulletChartHor3(c(350,500,600),target=550,measure=340,base_font_size=6))
 garbage<-dev.off()
 @ 
 
 <<newCust,echo=FALSE,results=hide,cache=TRUE>>=
-tikz(file="build/customers.tex",width=1.6,height=0.53)
+tikz(file="build/customers.tex",width=1.2,height=0.53)
  print(bulletChartHor3(c(1400,2000,2500),target=2100,measure=1700,base_font_size=6))
 garbage<-dev.off()
 @ 
 <<satifaction,echo=FALSE,results=hide,cache=TRUE>>=
-tikz(file="build/custSatifaction.tex",width=1.6,height=0.53)
+tikz(file="build/custSatifaction.tex",width=1.2,height=0.53)
  print(bulletChartHor3(c(3.5,4.5,6),target=5,measure=5.25,base_font_size=6))
 garbage<-dev.off()
 @ 
 \begin{frame}[fragile]
 \footnotesize
 \begin{table}[h!]
-\begin{tabular}{@{}x{3cm}|l@{}}
-\textbf{Revenue}\newline\small{ US \$  (1,000)}& \raisebox{-.5\height}{\input{revenue}} \\ \hline \\
+\begin{tabular}{@{}x{3cm}|@{}l@{}}
+\textbf{Revenue}\newline\small{ US \$  (1,000)}&\inserttabled{revenue} \\ 
 \textbf{Profit}\newline \%  &  \inserttabled{profit} \\ 
-\hline \\
 \textbf{Ave Order Size}\newline\small{US \$} & \inserttabled{orderSize} \\
 \textbf{New Customer}\newline\small{Count}&\inserttabled{customers}\\
 \textbf{Cust Satisfaction}\newline\small{Top Rating of 5}&\inserttabled{custSatifaction}\\
