@@ -79,7 +79,8 @@ bulletChartHor3<-function(grades,title,target,measure,breaks,base_font_size=8) {
          panel.grid.major = theme_blank(),
          axis.text.y =theme_blank(),
          axis.title.x =theme_blank(),
-         axis.title.y = theme_blank())
+         axis.title.y = theme_blank(),
+         opts(plot.margin = unit(c(0,.5,0,-0.6), "lines")))
   
   p
 }
