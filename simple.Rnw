@@ -268,10 +268,12 @@ garbage<-dev.off()
 
 \input{profit23} \hspace*{1em} 1.0 x 0.53 - base font size 6pt\\
 
- 
+\newpage
+begin\\ 
 <<profit24,echo=FALSE,results=hide,cache=TRUE>>=
 tikz(file="build/profit24.tex",width=1.2,height=0.53)
- print(bulletChartHor3(c(20,25,30),target=27.5,measure=23,base_font_size=6))
+ print(bulletChartHor3(c(20,25,30),target=27.5,measure=23,base_font_size=6)+
+       opts(plot.margin = unit(c(0,.5,0,-0.65), "lines")))
 garbage<-dev.off()
 @
 
