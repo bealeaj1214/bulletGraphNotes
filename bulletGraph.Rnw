@@ -16,6 +16,7 @@
 \newcolumntype{x}[1]{%
 >{\RaggedLeft\hspace{0pt}}p{#1}}%
 
+\newcommand{\inserttabled}[1]{\raisebox{-.5\height}{\input{#1}}}
 
 \title[Bullet Graph]{Bullet Graphs with GGplot2}
 \author[A. Beale ]{Alan Beale}
@@ -86,16 +87,16 @@ tikz(file="build/custSatifaction.tex",width=1.6,height=0.53)
  print(bulletChartHor3(c(3.5,4.5,6),target=5,measure=5.25,base_font_size=6))
 garbage<-dev.off()
 @ 
-\begin{frame}
+\begin{frame}[fragile]
 \footnotesize
 \begin{table}[h!]
 \begin{tabular}{@{}x{3cm}|l@{}}
-\textbf{Revenue}\newline\small{ US \$  (1,000)}& \input{revenue} \\ \hline \\
-\textbf{Profit}\newline \%  & \input{profit}\\ 
+\textbf{Revenue}\newline\small{ US \$  (1,000)}& \raisebox{-.5\height}{\input{revenue}} \\ \hline \\
+\textbf{Profit}\newline \%  &  \inserttabled{profit} \\ 
 \hline \\
-\textbf{Ave Order Size}\newline\small{US \$} & \input{orderSize} \\
-\textbf{New Customer}\newline\small{Count}& \input{customers}\\
-\textbf{Cust Satisfaction}\newline\small{Top Rating of 5}& \input{custSatifaction}\\
+\textbf{Ave Order Size}\newline\small{US \$} & \inserttabled{orderSize} \\
+\textbf{New Customer}\newline\small{Count}&\inserttabled{customers}\\
+\textbf{Cust Satisfaction}\newline\small{Top Rating of 5}&\inserttabled{custSatifaction}\\
 \end{tabular}
 \end{table}
 \normalsize
